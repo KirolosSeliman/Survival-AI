@@ -1,0 +1,27 @@
+conda create -n mlagents python=3.10.12
+
+conda activate mlagents
+
+conda install numpy=1.23.5
+
+pip3 install torch~=2.2.1 --index-url https://download.pytorch.org/whl/cpu
+
+python
+import torch
+import numpy
+print(torch.__version__)
+print(numpy.__version__)
+exit()
+
+cd "where unity project is"
+
+# if there is a problem with mlagents-learn --help
+pip install "setuptools<81"
+
+mlagents-learn --help
+
+mlagents-learn "yaml path" --run-id=TrainingName --force --timeout-wait=300
+
+#for the tensorboard results (open an other terminal)
+cd "where unity project is"
+tensorboard --logdir results
